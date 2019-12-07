@@ -51,6 +51,7 @@ class _FirstPageState extends State<FirstPage> {
         child: Consumer<PatientCardStore>(
           builder: (consumer, patientCardStore, _) {
             return GridView.builder(
+              physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
@@ -58,26 +59,39 @@ class _FirstPageState extends State<FirstPage> {
                   mainAxisSpacing: 7.0),
               padding: const EdgeInsets.all(10.0),
               itemBuilder: (context, i) {
-            final files = patientCardStore.patientCards[i];
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.center, //add this
-                  children: <Widget>[
-                    Icon(LineIcons.folder_o, size: 50,),
-                    SizedBox(height: 10.0,),
-                    Center(
-                      child: Column(
-                        children: <Widget>[
-                          Container(
-                            child: Text(files.fileName),
-                          ),
-                          SizedBox(height: 10,),
-                          Container(
-                            child: Text(files.dateAdded, style: TextStyle(color: Colors.grey[600]),),
-                          ),
-                        ],
+                final files = patientCardStore.patientCards[i];
+                return GestureDetector(
+                  onTap: () => print(files.fileName),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center, //add this
+                    children: <Widget>[
+                      Icon(
+                        LineIcons.folder_o,
+                        size: 50,
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Center(
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              child: Text(files.fileName),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              child: Text(
+                                files.dateAdded,
+                                style: TextStyle(color: Colors.grey[600]),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 );
               },
               itemCount: patientCardStore.patientCards.length,

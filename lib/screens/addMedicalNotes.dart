@@ -187,7 +187,7 @@ class _AddMedicalNotesState extends State<AddMedicalNotes> {
       appBar: AppBar(
         title: Text(
           'Add Vacines Manual',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400),
         ),
         leading: IconButton(
           icon: Icon(Icons.keyboard_arrow_left),

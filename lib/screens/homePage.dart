@@ -1,6 +1,6 @@
+import 'package:assignment/screens/folderIcon.dart';
 import 'package:assignment/store/PatientCardStore.dart';
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icons.dart';
 import 'package:provider/provider.dart';
 
 class FirstPage extends StatefulWidget {
@@ -69,10 +69,7 @@ class _FirstPageState extends State<FirstPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center, //add this
                     children: <Widget>[
-                      Icon(
-                        LineIcons.folder_o,
-                        size: 50,
-                      ),
+                      FileIcon(),
                       SizedBox(
                         height: 10.0,
                       ),

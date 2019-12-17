@@ -1,5 +1,4 @@
 import 'package:assignment/screens/homePage.dart';
-import 'package:assignment/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 
@@ -63,7 +62,10 @@ class HomePageState extends State<HomePage> {
         title: userWidget,
         actions: <Widget>[
           IconButton(
-            icon: Icon(LineIcons.plus_circle),
+            icon: Icon(
+              LineIcons.plus_circle,
+              color: Colors.black,
+            ),
             onPressed: () {
               showDialog(
                 context: context,
@@ -82,7 +84,6 @@ class HomePageState extends State<HomePage> {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         TextFormField(
-                          // This handles the email field of the for the application
                           obscureText: false,
                           textAlign: TextAlign.center,
                           decoration: InputDecoration(

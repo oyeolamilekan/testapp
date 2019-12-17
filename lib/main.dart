@@ -3,6 +3,8 @@ import 'package:assignment/store/PatientCardStore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'screens/addMedicalNotes.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -12,6 +14,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
+        routes: {
+          "/addMedicalNotes": (_) => AddMedicalNotes()
+        },
         theme: ThemeData(
           // This is the theme of your application.
           //

@@ -61,7 +61,11 @@ class _FirstPageState extends State<FirstPage> {
               itemBuilder: (context, i) {
                 final files = patientCardStore.patientCards[i];
                 return GestureDetector(
-                  onTap: () => print(files.fileName),
+                  onTap: () {
+                    if (files.fileName == 'Lab tests'){
+                      Navigator.pushNamed(context, '/addMedicalNotes');
+                    }
+                  },
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center, //add this
                     children: <Widget>[
@@ -101,7 +105,6 @@ class _FirstPageState extends State<FirstPage> {
       );
     }
 
-    final lastMonthWidget = Container();
 
     sheetTag(String text) {
       return ClipRRect(
